@@ -1,6 +1,6 @@
-import React from 'react';
-import { Box, Divider, List, ListItem, ListItemText, Typography } from '@mui/material';
-import styles from '../index.module.css';
+// ProductMenu.tsx
+import React, { useState } from 'react';
+import { Box, Divider, List, ListItem, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
 import FiberManualRecordOutlinedIcon from '@mui/icons-material/FiberManualRecordOutlined';
 import ViewInArOutlinedIcon from '@mui/icons-material/ViewInArOutlined';
 import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
@@ -9,8 +9,15 @@ import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
+import styles from '../index.module.css';
 
-const menuItems = [
+interface MenuItem {
+  icon: React.ReactElement;
+  primary: string;
+  secondary: string;
+}
+
+const menuItems: MenuItem[] = [
   { icon: <FiberManualRecordOutlinedIcon />, primary: 'Actions', secondary: 'Automate any workflow' },
   { icon: <ViewInArOutlinedIcon />, primary: 'Packages', secondary: 'Host and manage packages' },
   { icon: <VerifiedUserOutlinedIcon />, primary: 'Security', secondary: 'Find and fix vulnerabilities' },
@@ -21,43 +28,54 @@ const menuItems = [
   { icon: <SmsOutlinedIcon />, primary: 'Discussions', secondary: 'Collaborate outside of code' },
 ];
 
-const ProductMenu = () => {
+interface ExploreItem {
+  label: string;
+}
+
+const exploreItems: ExploreItem[] = [
+  { label: 'Explore' },
+  { label: 'All features' },
+  { label: 'Documentation' },
+  { label: 'Github Sklls' },
+  { label: 'Blog' },
+];
+
+
+
+
+interface ProductMenuProps {
+  open: boolean;
+  handleMenuOpen: (isOpen: boolean) => void;
+}
+
+const ProductMenu: React.FC = () => {
+
+
   return (
     <React.Fragment>
-      <Box component={'div'} className={styles.productmenuhead}>
-        <Box component={'div'} className={styles.dflex}>
-          <Box component={'div'}>
-            <List>
-              {menuItems.map((item, index) => (
-                <ListItem key={index}>
-                  {item.icon && <Box className={styles.iconmargin}>{item.icon}</Box>}
-                  <div>
-                    <ListItemText primary={<Typography variant='body1'>{item.primary}</Typography>} secondary={<Typography variant='caption'>{item.secondary}</Typography>} />
-                  </div>
-                </ListItem>
-              ))}
-            </List>
-          </Box>
+      <Box component={'div'} sx={{ display: 'flex' }}>
+        <Box component={'div'}>
+          {menuItems.map((item: MenuItem) => (
+            <MenuItem key={item.primary} sx={{ p: 1.1 }}>
+              <ListItem sx={{ height: '40px' }}>
+                {item.icon && <Box sx={{ pr: 3 }}>{item.icon}</Box>}
+                <ListItemText
+                  primary={<Typography variant="body1">{item.primary}</Typography>}
+                  secondary={<Typography variant="caption">{item.secondary}</Typography>}
+                />
+              </ListItem>
+            </MenuItem>
+          ))}
+        </Box>
 
-          <Divider orientation="vertical" flexItem sx={{ padding: 2 }} />
+        <Divider orientation="vertical" flexItem />
 
-          <Box component={'div'} className={styles.explore}>
-            <Typography variant='h6' component={'p'}>
-              Explore
-            </Typography>
-            <Typography className={styles.exptxt} variant='body2' component={'p'}>
-              All features
-            </Typography>
-            <Typography className={styles.exptxt} variant='body2' component={'p'}>
-              Documentation
-            </Typography>
-            <Typography className={styles.exptxt} variant='body2' component={'p'}>
-              Github Sklls
-            </Typography>
-            <Typography className={styles.exptxt} variant='body2' component={'p'}>
-              Blog
-            </Typography>
-          </Box>
+        <Box component={'div'} className={styles.explore}>
+          {exploreItems.map((item, index) => (
+            <ListItemText key={index} className={index === 0 ? '' : styles.exptxt}>
+              {item.label}
+            </ListItemText>
+          ))}
         </Box>
       </Box>
     </React.Fragment>

@@ -7,18 +7,7 @@
 }
 
 section {
-    background-color: #1B1F23;
-}
-
-.productmenuhead {
-    position: absolute;
-    top: 70px;
-    left: 48px;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: '0 0 10px rgba(0,0,0,0.2)';
-    border: 1px solid #1B1F23;
+    background-color: #171515;
 }
 
 .dflex{
@@ -35,6 +24,7 @@ margin-right: 1.2em;
 
 .exptxt{
     padding: 0.6em 0em;
+    cursor: pointer;
 }
 
 .dflex{
@@ -46,25 +36,305 @@ margin-right: 1.2em;
     padding: 0.7em 2em;
 }
 
-ul {
-    list-style: none;
-    padding: unset;
-    margin: unset;
-  }
-  
-  li {
-    padding: 14px;
-    transition: all linear 0.3s;
-  }
-  
-  li:hover {
-    background: gray;
-    cursor: pointer;
+.for{
+    padding: 0.7em;
+    width: 300px;
+}
+
+.pritxt{
+    font-family: 'Open Sans';
     color: #fff;
-  }
-  
-  .dropdown-menu {
-    background: #fff;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-    transition: all linear 0.3s;
-  }
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.navtxt{
+    margin: 0px 6px;
+}
+
+.frimg{
+    width: 44px;
+    height: 44px;
+}
+
+.unitxt{
+    color: #FFFF;
+    font-family: 'Open Sans' !important;
+    font-size: 16px !important;
+}
+
+.subtxt{
+    color: #6E7681;
+    font-family: 'Open Sans' !important;
+    font-size: 16px !important;
+}
+
+.boxst{
+    border:1px solid #424b5b;
+    border-radius: 100px;
+    width: 435px;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.bulittxt{
+    font-size: 86.4px !important;
+    color: #FFFF !important;
+    font-family: 'Open Sans' !important;
+    font-weight: 600 !important;
+    line-height: 76px !important;
+    margin-bottom: 12px !important;
+}
+
+.bulitsubtxt{
+    color: #7D8590;
+    font-size: 20px !important;
+    line-height: 28px !important;
+}
+
+.btnend{
+    background-color: #6E40C9 !important;
+    height: 48px;
+    border-radius: 0px .375rem .375rem 0px !important;
+    text-transform: none !important;
+}
+
+.btnend1{
+    background-color: #6E40C9 !important;
+    height: 48px;
+    border-radius:  .375rem  !important;
+    text-transform: none !important;
+}
+
+.txtfield{
+    height: 48px !important;
+    background-color: #FFFF;
+    border-radius:  .375rem  0px  0px  .375rem !important;
+    margin-right: 30px;
+}
+
+.txtfield1{
+    height: 48px !important;
+    background-color: #FFFF;
+    border-radius:  .375rem !important;
+    margin-right: 30px;
+}
+
+.enbtn{
+    border: 1px solid #bc8cff !important;
+    text-transform: none !important;
+    font-size:16px !important;
+    color: #FFFF !important;
+    font-family: 'Open Sans' !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+
+.enbtn1{
+    border: 1px solid #bc8cff !important;
+    text-transform: none !important;
+    font-size:16px !important;
+    color: #FFFF !important;
+    font-family: 'Open Sans' !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    height: 48px;
+    margin-bottom: 1em !important;
+}
+
+
+.txtorg{
+    color: #6E7681 ;
+    font-size: 20px !important;
+    line-height: 28px !important;
+    font-family: 'Open Sans' !important;
+}
+
+.protxt{
+    color: #FFFF;
+    font-family: 'Open Sans' !important;
+    font-size: 24px !important;
+    line-height: 28px !important;
+    font-weight: 800 !important;
+    margin-bottom: 24px !important;
+}
+
+.innotxt{
+    color: #3fb950;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -0.03em;
+    font-family: 'Open Sans';
+    font-weight: 900;
+}
+
+.innotxt1{
+    color: #FFFF;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -0.03em;
+    font-family: 'Open Sans';
+    font-weight: 800;
+}
+
+.imgt{
+    background-image: url('https://github.githubassets.com/assets/illu-copilot-editor-6474457a5b19.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 84vh;
+    background-attachment: scroll;
+}
+
+.imgbar{
+    background-image: url('https://github.githubassets.com/assets/issues-plan-2-46d1ce1d4519.png?width=1249&format=webpll');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 84vh;
+    background-attachment: scroll;
+}
+
+.copt{
+    font-size: 24px !important;
+    line-height: 32px !important;
+    font-weight: 500 !important;
+    color: #FFFF;
+    margin-right:8px;
+}
+
+.copttxt{
+    color: #7D8590;
+    font-size: 24px !important;
+    line-height: 32px !important;
+    font-weight: 500 !important;
+}
+
+.axd{
+    color: #FFFF !important;
+    font-weight: 600 !important;
+    font-family: 'Open Sans';
+    margin-top: 1em;
+    font-size: 24px !important;
+    line-height: 32px !important;
+}
+
+.did{
+    border: 1px solid #3fb950;
+    color: #3fb950;
+    display: inline-block;
+    font-size: 12px !important;
+    line-height: 10px !important;
+}
+
+.txt22{
+    font-size: 72px !important;
+    line-height: 76px !important;
+    font-weight: 600 !important;
+    color: #3fb950;
+    margin-top: 1rem;
+}
+
+.txt22sub{
+    font-size: 24px !important;
+    line-height: 32px !important;
+    font-weight: 500;
+    color: #FFFF;
+    margin: 0.8em 0px !important;
+}
+
+.gitac{
+    font-size: 24px !important;
+    line-height: 32px !important;
+    font-weight: 500;
+    color: #FFFF;
+    margin-right: 0.2em;
+}
+
+.subgitac{
+color: #EBF5FF80;
+font-size: 24px !important;
+line-height: 32px !important;
+font-weight: 500 !important;
+margin-bottom: 24px;
+}
+
+.mainac{
+    border: 1px solid #EBF5FF80 !important;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.innotxtapl{
+    color: #33B3AE;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -0.03em;
+    font-family: 'Open Sans';
+    font-weight: 900;
+}
+
+.yml{
+    color: #6E7681;
+}
+
+.bulidbox{
+    background: #EBF5FF33;
+    font-weight: 600;
+}
+
+.bulidstep{
+    background: #EBF5FF33;
+    padding: 2px;
+    border-radius: 4px 4px 0px 0px;
+    color: #FFFF;
+    font-weight: 600;
+}
+
+
+.did1{
+    border: 1px solid #33B3AE;
+    color: #33B3AE;
+    display: inline-block;
+    font-size: 12px !important;
+    line-height: 10px !important;
+}
+
+.txt7x{
+    font-size: 72px !important;
+    line-height: 76px !important;
+    font-weight: 600 !important;
+    color: #33B3AE;
+    margin-top: 1rem;
+}
+
+.innotxtsup{
+    color: #F778BA;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -0.03em;
+    font-family: 'Open Sans';
+    font-weight: 900;
+}
+
+.did80{
+    border: 1px solid #F778BA;
+    color: #F778BA;
+    display: inline-block;
+    font-size: 12px !important;
+    line-height: 10px !important;
+}
+
+.txt80{
+    font-size: 72px !important;
+    line-height: 76px !important;
+    font-weight: 600 !important;
+    color: #F778BA;
+    margin-top: 1rem;
+}
+
+.percard{
+    border: 1px solid #EBF5FF80 !important;
+    width: auto;
+}

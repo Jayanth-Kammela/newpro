@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+section {
+    background-color: #171515;
+}
+
+.bulidtxt{
+    color: #FFFF;
+}
+.timecl{
+    color: #EBF5FF80
+}
+
+.bord{
+    border-radius: 0px 4px 4px 4px !important;
+}
+
+.nameper{
+    color: #FFFF;
+}
+
+.btncard{
+    border: 1px solid #EBF5FF80 !important;
+}
