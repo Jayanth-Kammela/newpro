@@ -1,64 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './index.module.css';
 import {
-  Toolbar,
   Box,
-  List,
-  ListItem,
-  ListItemText,
-  IconButton,
-  Drawer,
-  useMediaQuery,
-  useTheme,
-  Button,
   Container,
   Typography,
-  TextField,
-  InputAdornment,
-  styled,
-  FormGroup,
-  Divider,
-  Stack,
 } from '@mui/material';
-import { Menu, Settings, Info, ContactMail, Home } from '@mui/icons-material';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import ProductMenu from './components/ProductMenu';
-import SolutionMenu from './components/SolutionMenu';
-import OpenSourceMenu from './components/OpenSourceMenu';
-import { Thick } from './svgs/svg';
-import { bulidsteps, sponsors } from './utils/utils';
+import { Arrow, Love, Thick } from './svgs/svg';
+import { bulidsteps, githubActionsData, githubActionsData1, githubVcardData, githubVcardData1, githubVcardData2, githubVcardData3, githubVcardData4, githubVcardData5, sponsors } from './utils/utils';
+import CallActionBtn from './components/CallActionBtn';
+import ImageOrg from './components/ImageOrg';
+import Footer from './components/Footer';
+import GitHubAction from './components/GitHubAction';
+import ImageVCard from './components/ImageVCard';
+import NavBar from './components/NavBar';
 
 
 const App = () => {
-
-  const CustomStyles = {
-    btnNav: {
-      background: '#30A2FF',
-      color: '#ffff',
-      padding: '5px 22px 5px 22px',
-      fontSize: '14px',
-      borderRadius: '18px',
-      fontFamily: 'Montserrat',
-      fontWeight: 'bold',
-      margin: '0px 4px 0px 4px',
-      cursor: 'pointer',
-      '&:hover': {
-        backgroundColor: '#ffff',
-        color: '#30A2FF',
-        border: '1px solid #30A2FF'
-      }
-    },
-    navLink: {
-      mx: 2,
-      cursor: 'pointer',
-      position: "relative",
-      fontSize: '14px',
-      fontFamily: 'Open Sans',
-      fontWeight: 'bold',
-      color: '#FFFF'
-    }
-  }
-
   type Sponcard = {
     name: string;
     avatar: string;
@@ -70,135 +27,21 @@ const App = () => {
     time: string
   }
 
-  const [open, setOpen] = useState<boolean>(false);
-  const isMdScreen = useMediaQuery('(max-width: 750px)');
-
-  const theme = useTheme();
-  const forScreenWidth = useMediaQuery(theme.breakpoints.down('md'));
-
-  const forClick = () => {
-    setOpen(!open);
-  };
-
-  const [isProductMenuOpen, setProductMenuOpen] = useState(false);
-
-
-  const handleToggleDrawer = () => {
-    setProductMenuOpen(!isProductMenuOpen);
-  };
-
-  const [isSolutionMenuOpen, setSolutionMenuOpen] = useState(false);
-
-  const handleToggleDrawer1 = () => {
-    setSolutionMenuOpen(!isSolutionMenuOpen);
-  };
-
-  const [isSourceMenuOpen, setSourceMenuOpen] = useState(false);
-
-  const handleToggleDrawer2 = () => {
-    setSourceMenuOpen(!isSourceMenuOpen);
-  };
-
-  const Txt = styled(TextField)({
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        border: 'none',
-      },
-    },
-  });
-
   return (
     <React.Fragment>
       <main>
+
         <section>
-          <Toolbar>
-            <GitHubIcon sx={{ width: 32, height: 32, cursor: 'pointer', color: '#FFFF' }} />
-            {!forScreenWidth && (
-              <>
-                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <div onMouseEnter={handleToggleDrawer} onMouseLeave={handleToggleDrawer} className={styles.navtxt}>
-                    <Box component={'div'} sx={{ ...CustomStyles.navLink }} >
-                      Product
-                    </Box>
-                    <Drawer anchor="top" open={isProductMenuOpen} onClose={handleToggleDrawer} PaperProps={{ sx: { width: 500, height: 'auto', position: 'absolute', left: 80, top: 60, borderRadius: 2 } }}>
-                      <ProductMenu />
-                    </Drawer>
-                  </div>
-
-                  <div onMouseEnter={handleToggleDrawer1} onMouseLeave={handleToggleDrawer1} className={styles.navtxt}>
-                    <Box component={'div'} sx={{ ...CustomStyles.navLink }}>
-                      Solutions
-                    </Box>
-                    <Drawer anchor="top" open={isSolutionMenuOpen} onClose={handleToggleDrawer1} PaperProps={{ sx: { width: 300, height: '380px', position: 'absolute', left: 170, top: 60, borderRadius: 2 } }}>
-                      <SolutionMenu />
-                    </Drawer>
-                  </div>
-
-                  <div onMouseEnter={handleToggleDrawer2} onMouseLeave={handleToggleDrawer2} className={styles.navtxt}>
-                    <Box component={'div'} sx={{ ...CustomStyles.navLink }}>
-                      Open Source
-                    </Box>
-                    <Drawer anchor="top" open={isSourceMenuOpen} onClose={handleToggleDrawer2} PaperProps={{ sx: { width: 300, height: '340px', position: 'absolute', left: 280, top: 60, borderRadius: 2 } }}>
-                      <OpenSourceMenu />
-                    </Drawer>
-                  </div>
-
-                  <Box component={'div'} sx={{ ...CustomStyles.navLink }} className={styles.navtxt}>Pricing</Box>
-                </Box>
-
-                <Box sx={{ flexGrow: 1 }} />
-                <Button variant="text" component={Button} sx={{ textTransform: 'none', color: '#FFFF' }}>
-                  Sign in
-                </Button>
-                <Button variant="outlined" component={Button} sx={{ textTransform: 'none', color: '#FFFF' }}>
-                  Sign up
-                </Button>
-              </>
-            )}
-
-            {forScreenWidth && (
-              <>
-                <Box sx={{ flexGrow: 1 }} />
-                <Button variant="text" component={Button} sx={{ textTransform: 'none', color: '#FFFF' }}>
-                  Sign in
-                </Button>
-                <Button variant="outlined" component={Button} sx={{ textTransform: 'none', color: '#FFFF' }}>
-                  Sign up
-                </Button>
-                <IconButton onClick={forClick} edge="end">
-                  <Menu />
-                </IconButton>
-              </>
-            )}
-
-          </Toolbar>
+          <nav>
+            <NavBar />
+          </nav>
         </section>
-        {forScreenWidth && (
-          <Drawer anchor="right" open={open} onClose={forClick}>
-            <List sx={{ width: 280 }}>
-              <ListItem>
-                <Home />
-                <ListItemText primary="Home" />
-              </ListItem>
-              <ListItem>
-                <Settings />
-                <ListItemText primary="Service" />
-              </ListItem>
-              <ListItem>
-                <Info />
-                <ListItemText primary="Blog" />
-              </ListItem>
-              <ListItem>
-                <ContactMail />
-                <ListItemText primary="About" />
-              </ListItem>
-            </List>
-          </Drawer>
-        )}
 
         <section>
           <Container>
             <Box sx={{ padding: '60px' }} />
+
+            {/* <Box className='right-bg'/> */}
 
             <Box component={'div'} className={`${styles.boxst} w-full lg:w-2/4 md:w-3/4 sm:w-full py-4`}>
               <img
@@ -216,7 +59,7 @@ const App = () => {
               </div>
             </Box>
 
-            <Box component={'div'} sx={{ marginBottom: '96px' }}>
+            <Box component={'div'} sx={{ marginBottom: '88px' }}>
               <Typography component={'p'} className={`${styles.bulittxt}`}>
                 Let’s build from&nbsp;here
               </Typography>
@@ -225,62 +68,12 @@ const App = () => {
               </Typography>
             </Box>
 
-            {isMdScreen ? <Box component={'div'}>
-              <div className='my-4'>
-                <Txt type='email' placeholder='Email address' className={`${styles.txtfield1} w-full`} autoComplete='off'
-                  variant="outlined"
-                />
-              </div>
-              <div className='my-4'>
-                <Button className={`${styles.btnend1} w-full my-20`} variant='contained'>Sign up for GitHub</Button>
-              </div>
-              <div>
-                <Button variant='outlined' className={`${styles.enbtn1} w-full`}>Start a free enterprice trial</Button>
-              </div>
-            </Box>
-              : <Stack direction={'row'} sx={{ marginBottom: 2 }}>
-                <Txt type='email' placeholder='Email address' className={styles.txtfield} autoComplete='off'
-                  variant="outlined"
-                />
-                <Button className={styles.btnend} variant='contained'>Sign up for GitHub</Button>
-                <Divider orientation="vertical" flexItem sx={{ background: '#FFFF', marginRight: '30px', marginLeft: '30px' }} />
-                <Button variant='outlined' className={styles.enbtn}>Start a free enterprice trial</Button>
-              </Stack>}
+            <div>
+              <CallActionBtn />
+            </div>
 
-            {/* <Box component={'div'} sx={{ display: 'flex', marginBottom: 2 }}>
-              <FormGroup row sx={{ marginRight: '30px' }}>
-                <Txt type='email' placeholder='Email address' className={styles.txtfield} autoComplete='off'
-                  variant="outlined"
-                />
-                <Button className={styles.btnend} variant='contained'>Sign up for GitHub</Button>
-              </FormGroup>
-              <Divider orientation="vertical" flexItem sx={{ background: '#FFFF', marginRight: '30px' }} />
-              <Button variant='outlined' className={styles.enbtn}>Start a free enterprice trial</Button>
-            </Box> */}
-
-            <Box component={'div'} className='mt-16'>
-              <Typography component={'p'} className={styles.txtorg}>Trusted by the world’s leading&nbsp;organizations&nbsp;↘︎</Typography>
-            </Box>
-
-            <div className="flex flex-wrap justify-around items-center">
-              <div className=" lg:w-48 p-6">
-                <img className="w-full h-auto" src="https://github.githubassets.com/assets/3m-0151c2fda0ce.svg" alt="" />
-              </div>
-              <div className="lg:w-48 p-6">
-                <img className="w-full h-auto" src="https://github.githubassets.com/assets/kpmg-c249f20c5173.svg" alt="" />
-              </div>
-              <div className=" lg:w-48 p-6">
-                <img className="w-full h-auto" src="https://github.githubassets.com/assets/mercedes-fcf97d2d6ec4.svg" alt="" />
-              </div>
-              <div className=" lg:w-48 p-6">
-                <img className="w-full h-auto" src="https://github.githubassets.com/assets/sap-96248a56d312.svg" alt="" />
-              </div>
-              <div className=" lg:w-48 p-6">
-                <img className="w-full h-auto" src="https://github.githubassets.com/assets/pg-f1f19955c4e4.svg" alt="" />
-              </div>
-              <div className=" lg:w-48 p-6">
-                <img className="w-full h-auto" src="https://github.githubassets.com/assets/telus-df0c2109df99.svg" alt="" />
-              </div>
+            <div>
+              <ImageOrg />
             </div>
 
             <Box sx={{ padding: 7.2 }} />
@@ -311,7 +104,9 @@ const App = () => {
                 <h2 className={styles.copttxt}><span className={styles.copt}>GitHub Copilot</span>
                   empowers developers to complete tasks 55% faster with contextualized AI coding assistance across workflows.</h2>
               </div>
-              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Explore GitHub Copilot </a><svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path><path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path></svg></div>
+              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Explore GitHub Copilot </a>
+                <Arrow />
+              </div>
             </Box>
 
             <Box sx={{ padding: 5 }} />
@@ -324,80 +119,18 @@ const App = () => {
               <Typography className={`${styles.txt22sub} w-100 sm:w-5/12 md:min-w-[400px] lg:min-w-[500px] xl:min-w-[600px]`} component={'p'}>
                 in developer productivity after three years with GitHub
               </Typography>
-              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Read the report </a><svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path><path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path></svg></div>
+              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Read the report </a><Arrow /></div>
             </Box>
 
             <Box sx={{ padding: 5 }} />
 
-            <Box component={'div'} className={`${styles.mainac} flex flex-col lg:flex-row justify-between rounded-xl`}>
-              <div className='flex flex-col justify-between p-16'>
-                <div className='w-full'>
-                  <p className={`${styles.subgitac}`}>
-                    <span className={styles.gitac}>GitHub Actions</span> automates your build, test, and deployment workflow with simple and secure CI/CD.
-                  </p>
-                </div>
-                <div className={`${styles.axd} flex items-center p-1`}>
-                  <a href="" className='mr-4'>Discover GitHub Actions</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                    <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                  </svg>
-                </div>
-                <div>
-                </div>
-              </div>
-              <div>
-                <img src="https://github.githubassets.com/assets/illu-actions-2-c5178134f381.png?width=653&format=webpll" alt="" />
-              </div>
-            </Box>
+            <div>
+              <GitHubAction data={githubActionsData} />
+            </div>
 
             <Box component={'div'} className='flex justify-evenly flex-col lg:flex-row md:flex-col sm:flex-col my-10'>
-
-              <Box component={'div'} className={`${styles.mainac} lg:w-1/2 flex flex-col justify-between rounded-xl mb-6 sm:mb-6 md:mb-6 lg:mr-5`}>
-                <div className='flex flex-col justify-between p-16'>
-                  <div className='w-full'>
-                    <p className={`${styles.subgitac}`}>
-                      <span className={styles.gitac}>GitHub Codespaces</span>  offers a complete dev environment in seconds. Code, build, test, and open pull requests from any repo.
-                    </p>
-                  </div>
-                  <div className={`${styles.axd} flex items-center p-1`}>
-                    <a href="" className='mr-4'>Check out GitHub Codespaces </a>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                      <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                    </svg>
-                  </div>
-                  <div>
-                  </div>
-                </div>
-                <div>
-                  <img src="https://github.githubassets.com/assets/illu-codespaces-1d2d17e8b2b7.png?width=1209&format=webpll" alt="" />
-                </div>
-              </Box>
-
-              <Box component={'div'} className={`${styles.mainac} lg:w-1/2 flex flex-col justify-between rounded-xl mb-6 sm:mb-6 md:mb-6 lg:ml-5`}>
-                <div className='flex flex-col justify-between p-16'>
-                  <div className='w-full'>
-                    <p className={`${styles.subgitac}`}>
-                      <span className={styles.gitac}>GitHub Mobile
-                      </span> fits your projects in your pocket, so you never miss a beat while on the go.
-                    </p>
-                  </div>
-                  <div className={`${styles.axd} flex items-center p-1`}>
-                    <a href="" className='mr-4'>Download GitHub Mobile</a>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                      <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                    </svg>
-                  </div>
-                  <div>
-                  </div>
-                </div>
-                <div>
-                  <img src="https://github.githubassets.com/assets/illu-mobile-4d51d19f769e.png?width=1208&format=webpll" alt="" />
-                </div>
-              </Box>
-
+              <ImageVCard data={githubVcardData} />
+              <ImageVCard data={githubVcardData1} />
             </Box>
 
             <Box component={'div'} className=" w-full sm:w-full md:w-8/12 lg:w-100 xl:w-9/12  p-4">
@@ -412,6 +145,8 @@ const App = () => {
               </h2>
             </Box>
 
+
+            <Box sx={{ padding: 5 }} />
 
             <div className={`${styles.mainac} rounded-xl`}>
               <div className="relative">
@@ -460,7 +195,9 @@ const App = () => {
                 <h2 className={styles.copttxt}><span className={styles.copt}>GitHub Advanced Security</span>
                   enables you to find and fix vulnerabilities with ease and ship secure code quickly.</h2>
               </div>
-              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Dive into GitHub Advanced Securityt </a><svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path><path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path></svg></div>
+              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Dive into GitHub Advanced Security </a>
+                <Arrow />
+              </div>
             </Box>
 
             <Box sx={{ padding: 5 }} />
@@ -477,77 +214,15 @@ const App = () => {
 
             <Box sx={{ padding: 5 }} />
 
-            <Box component={'div'} className={`${styles.mainac} flex flex-col lg:flex-row justify-between rounded-xl`}>
-              <div className='flex flex-col justify-between p-16'>
-                <div className='w-full'>
-                  <p className={`${styles.subgitac}`}>
-                    <span className={styles.gitac}>GitHub Advanced Security </span> enables you to find and fix vulnerabilities with ease and ship secure code quickly.
-                  </p>
-                </div>
-                <div className={`${styles.axd} flex items-center p-1`}>
-                  <a href="" className='mr-4'>Dive into GitHub Advanced Securitys</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                    <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                  </svg>
-                </div>
-                <div>
-                </div>
-              </div>
-              <div>
-                <img src="https://github.githubassets.com/assets/illu-code-scanning-fc9dfb212aa3.png?width=772&format=webpll" alt="" />
-              </div>
-            </Box>
+            <div>
+              <GitHubAction data={githubActionsData1} />
+            </div>
 
             <Box sx={{ padding: 5 }} />
 
             <Box component={'div'} className='flex justify-evenly flex-col lg:flex-row md:flex-col sm:flex-col my-10'>
-
-              <Box component={'div'} className={`${styles.mainac} lg:w-1/2 flex flex-col justify-between rounded-xl mb-6 sm:mb-6 md:mb-6 lg:mr-5`}>
-                <div className='flex flex-col justify-between p-16'>
-                  <div className='w-full'>
-                    <p className={`${styles.subgitac}`}>
-                      <span className={styles.gitac}>Dependabot  </span>makes it easy to find and fix vulnerable dependencies in your supply chain.
-                    </p>
-                  </div>
-                  <div className={`${styles.axd} flex items-center p-1`}>
-                    <a href="" className='mr-4'>Explore Dependabot </a>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                      <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                    </svg>
-                  </div>
-                  <div>
-                  </div>
-                </div>
-                <div>
-                  <img src="https://github.githubassets.com/assets/illu-dependabot-d98c73cc6724.png?width=724&format=webpll" alt="" />
-                </div>
-              </Box>
-
-              <Box component={'div'} className={`${styles.mainac} lg:w-1/2 flex flex-col justify-between rounded-xl mb-6 sm:mb-6 md:mb-6 lg:ml-5`}>
-                <div className='flex flex-col justify-between p-16'>
-                  <div className='w-full'>
-                    <p className={`${styles.subgitac}`}>
-                      <span className={styles.gitac}>Secret scanning
-                      </span>automatically looks for partner patterns and prevents fraudulent use of accidentally committed secrets.
-                    </p>
-                  </div>
-                  <div className={`${styles.axd} flex items-center p-1`}>
-                    <a href="" className='mr-4'>Read about secret scanning</a>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                      <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                    </svg>
-                  </div>
-                  <div>
-                  </div>
-                </div>
-                <div>
-                  <img src="https://github.githubassets.com/assets/illu-secret-scanning-2-88fb429376d6.png?width=724&format=webpll" alt="" />
-                </div>
-              </Box>
-
+              <ImageVCard data={githubVcardData2} />
+              <ImageVCard data={githubVcardData3} />
             </Box>
 
             <Box sx={{ padding: 5 }} />
@@ -563,6 +238,8 @@ const App = () => {
               </h2>
             </Box>
 
+            <Box sx={{ padding: 5 }} />
+
             <div className="relative">
               <Box component={'div'} className={`${styles.imgbar} rounded bg-cover bg-no-repeat w-full h-84vh`} />
               <img className='absolute top-80 right-0 w-1/2 lg:w-2/5 md:w-1/3 sm:w-1/3 h-50vh rounded-lg' src="https://github.githubassets.com/assets/illu-projects-2-26077f1dd188.png" alt="" />
@@ -576,7 +253,7 @@ const App = () => {
                 <h2 className={styles.copttxt}><span className={styles.copt}>GitHub Issues and GitHub Projects</span>
                   supply project management tools that adapt to your team alongside your code.</h2>
               </div>
-              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Get started with GitHub Issues </a><svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path><path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path></svg></div>
+              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Get started with GitHub Issues </a><Arrow /></div>
             </Box>
 
             <Box sx={{ padding: 5 }} />
@@ -589,62 +266,16 @@ const App = () => {
               <Typography className={`${styles.txt22sub} w-100 sm:w-5/12 md:min-w-[400px] lg:min-w-[500px] xl:min-w-[600px]`} component={'p'}>
                 reduction in onboarding time with GitHub <sup>2</sup>
               </Typography>
-              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Read the report </a><svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path><path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path></svg></div>
+              <div className={`${styles.axd} flex items-center`}><a href="" className='mr-4'>Read the report </a><Arrow /></div>
             </Box>
 
 
             <Box sx={{ padding: 5 }} />
 
-
             <Box component={'div'} className='flex justify-evenly flex-col lg:flex-row md:flex-col sm:flex-col my-10'>
-
-              <Box component={'div'} className={`${styles.mainac} lg:w-1/2 flex flex-col justify-between rounded-xl mb-6 sm:mb-6 md:mb-6 lg:mr-5`}>
-                <div className='flex flex-col justify-between p-16'>
-                  <div className='w-full'>
-                    <p className={`${styles.subgitac}`}>
-                      <span className={styles.gitac}>GitHub Discussions</span>creates space to ask questions and have open-ended conversations.
-                    </p>
-                  </div>
-                  <div className={`${styles.axd} flex items-center p-1`}>
-                    <a href="" className='mr-4'>Jump into GitHub Discussions</a>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                      <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                    </svg>
-                  </div>
-                  <div>
-                  </div>
-                </div>
-                <div>
-                  <img src="https://github.githubassets.com/assets/illu-discussions-2-b915a6dd867e.png?width=724&format=webpll" alt="" />
-                </div>
-              </Box>
-
-              <Box component={'div'} className={`${styles.mainac} lg:w-1/2 flex flex-col justify-between rounded-xl mb-6 sm:mb-6 md:mb-6 lg:ml-5`}>
-                <div className='flex flex-col justify-between p-16'>
-                  <div className='w-full'>
-                    <p className={`${styles.subgitac}`}>
-                      <span className={styles.gitac}>Pull requests
-                      </span>allow real-time communication and collaboration about code changes.
-                    </p>
-                  </div>
-                  <div className={`${styles.axd} flex items-center p-1`}>
-                    <a href="" className='mr-4'>Check out pull requests</a>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                      <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                    </svg>
-                  </div>
-                  <div>
-                  </div>
-                </div>
-                <div>
-                  <img src="https://github.githubassets.com/assets/illu-pull-requests-2-280cc958fc05.png?width=724&format=webpll" alt="" />
-                </div>
-              </Box>
-
+              <ImageVCard data={githubVcardData4} />
+              <ImageVCard data={githubVcardData5} />
             </Box>
-
 
 
             <Box component={'div'} className={`${styles.mainac} flex flex-col lg:flex-row justify-between rounded-xl`}>
@@ -656,17 +287,14 @@ const App = () => {
                 </div>
                 <div className={`${styles.axd} flex items-center p-1`}>
                   <a href="" className='mr-4'>Invest with GitHub Sponsors</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
-                    <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"></path>
-                  </svg>
+                  <Arrow />
                 </div>
                 <div>
                 </div>
               </div>
 
               <div className="overflow-hidden">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 w-100 lg:w-full md:w-1/2" style={{ transform: 'rotate(-20deg)',height:'400px' }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 w-100 lg:w-full md:w-1/2" style={{ transform: 'rotate(-20deg)', height: '400px' }}>
                   {sponsors.map((sponsor: Sponcard) => (
                     <div className={`${styles.percard} rounded-lg p-2 max-w-xs text-center`} key={sponsor.name}>
                       <img
@@ -685,19 +313,7 @@ const App = () => {
                       >
                         <span className="flex items-center">
                           <span className="">
-                            <svg
-                              aria-hidden="true"
-                              viewBox="0 0 16 16"
-                              version="1.1"
-                              width="16"
-                              data-view-component="true"
-                              className="octicon octicon-heart"
-                              fill="#FFFF"
-                            >
-                              <path
-                                d="m8 14.25.345.666a.75.75 0 0 1-.69 0l-.008-.004-.018-.01a7.152 7.152 0 0 1-.31-.17 22.055 22.055 0 0 1-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.066 22.066 0 0 1-3.744 2.584l-.018.01-.006.003h-.002ZM4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.58 20.58 0 0 0 8 13.393a20.58 20.58 0 0 0 3.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.749.749 0 0 1-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5Z"
-                              ></path>
-                            </svg>
+                            <Love />
                           </span>
                           <span>Sponsor</span>
                         </span>
@@ -708,12 +324,31 @@ const App = () => {
               </div>
             </Box>
 
+            <Box sx={{ padding: 5 }} />
 
+            <Box component={'div'}>
+              <CallActionBtn />
+            </Box>
 
+            <Box sx={{ padding: 5 }} />
 
+            <Box component={'div'} sx={{ marginBottom: '88px' }}>
+              <Typography component={'p'} className={`${styles.milliontxt} w-4/5 lg:w-3/4 md:w-11/12 sm:w-11/12`}>
+                Over 100 million developers call GitHub home <sup>3</sup>
+              </Typography>
+              <Typography component={'p'} className={`${styles.bulitsubtxt} w-4/5 lg:w-3/4 md:w-4/5 sm:w-4/5 `}>
+                Whether you’re scaling your startup or just learning how to code, GitHub is your home. Join the world’s largest developer platform to build the innovations that empower humanity. Let’s build from here.
+              </Typography>
+            </Box>
 
           </Container>
+
+          <div>
+            <Footer />
+          </div>
+
         </section>
+
       </main>
     </React.Fragment>
   );

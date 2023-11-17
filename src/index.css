@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-section {
+section,nav {
     background-color: #171515;
 }
 
@@ -31,3 +31,35 @@ section {
 .btncard{
     border: 1px solid #EBF5FF80 !important;
 }
+
+.txtwgt{
+    font-weight: bold !important;
+}
+
+.imagbg{
+    background: url('https://github.githubassets.com/assets/hero-desktop-a38b0fd77b6c.webp');
+    width: 10 !important;
+    background-repeat: no-repeat;
+}
+
+/* @media(max-width:1400px){
+    .right-bg {
+        background-image: url('https://github.githubassets.com/assets/hero-desktop-a38b0fd77b6c.webp');
+        background-size: cover; 
+        background-position: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30%; 
+        height: 75%;
+        filter: blur(2px);
+        border-radius: 6px;
+        margin-top: 100px;
+      }
+}
+
+@media(max-width:1180px){
+    .right-bg {
+        background-image: none
+      }
+} */

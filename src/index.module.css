@@ -89,6 +89,38 @@ margin-right: 1.2em;
     margin-bottom: 12px !important;
 }
 
+@media(max-width: 600px) {
+    .bulittxt{
+        font-size: 4.85em !important;
+        color: #FFFF !important;
+        font-family: 'Open Sans' !important;
+        font-weight: 600 !important;
+        line-height: 76px !important;
+        margin-bottom: 12px !important;
+    }
+  }
+
+  @media(max-width: 400px) {
+    .bulittxt{
+        font-size: 4em !important;
+        color: #FFFF !important;
+        font-family: 'Open Sans' !important;
+        font-weight: 600 !important;
+        line-height: 76px !important;
+        margin-bottom: 12px !important;
+    }
+  }
+
+  .milliontxt{
+    font-size: 64px !important;
+    color: #FFFF !important;
+    font-family: 'Open Sans' !important;
+    font-weight: 600 !important;
+    line-height: 68px !important;
+    margin-bottom: 12px !important;
+    letter-spacing: -0.03em !important;
+  }
+
 .bulitsubtxt{
     color: #7D8590;
     font-size: 20px !important;
@@ -249,7 +281,7 @@ margin-right: 1.2em;
     line-height: 32px !important;
     font-weight: 500;
     color: #FFFF;
-    margin-right: 0.2em;
+    margin-right: 0.4em;
 }
 
 .subgitac{
@@ -259,6 +291,16 @@ line-height: 32px !important;
 font-weight: 500 !important;
 margin-bottom: 24px;
 }
+
+@media(max-width: 370px) {
+    .subgitac{
+        color: #EBF5FF80;
+        font-size: 16px !important;
+        line-height: 32px !important;
+        font-weight: 500 !important;
+        margin-bottom: 24px;
+        }
+  }
 
 .mainac{
     border: 1px solid #EBF5FF80 !important;
@@ -338,3 +380,23 @@ margin-bottom: 24px;
     border: 1px solid #EBF5FF80 !important;
     width: auto;
 }
+
+.bgfooter{
+    background-color: #171515;
+}
+
+.imgcss{
+    max-width: 100%;
+    /* min-height: auto; */
+}
+
+.imagbg{
+    background: url('https://github.githubassets.com/assets/hero-desktop-a38b0fd77b6c.webp');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+  
+
+  
