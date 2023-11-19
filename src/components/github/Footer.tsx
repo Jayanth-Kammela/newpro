@@ -1,6 +1,8 @@
 import React from 'react'
-import { footerData } from '../utils/utils'
-import { GitHub, GitHubName } from '../svgs/svg'
+import { footerData } from '../../utils/utils'
+import { GitHub, GitHubName } from '../../svgs/svg'
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 const Footer = () => {
     return (
@@ -67,12 +69,12 @@ const Footer = () => {
                         </span>
                         <div className="flex mt-4 sm:justify-center sm:mt-0">
                             <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                <GitHubName/>
+                                <FacebookIcon/>
                                 <span className="sr-only">Facebook page</span>
                             </a>
 
                             <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-                                <GitHub/>
+                                <GitHubIcon/>
                                 <span className="sr-only">GitHub account</span>
                             </a>
                         </div>

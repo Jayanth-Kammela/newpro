@@ -1,7 +1,7 @@
 import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
-import styles from '../index.module.css';
-import { menuSections } from '../utils/utils';
+import styles from '../../index.module.css';
+import { menuSections } from '../../utils/utils';
 
 const SolutionMenu: React.FC = () => {
 

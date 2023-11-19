@@ -1,8 +1,8 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React from 'react'
-import styles from "../index.module.css";
-import { Arrow } from '../svgs/svg';
-import { GitHubActionProps } from '../utils/utils';
+import styles from "../../index.module.css";
+import { Arrow } from '../../svgs/svg';
+import { CustomHover, GitHubActionProps } from '../../utils/utils';
 
 
 const ImageVCard = (data: GitHubActionProps) => {
@@ -17,8 +17,8 @@ const ImageVCard = (data: GitHubActionProps) => {
                         </p>
                     </div>
                     <div className={`${styles.axd} flex items-center p-1`}>
-                        <a href="" className='mr-4'>{actiontxt}</a>
-                        <Arrow/>
+                        <Typography component={'a'} sx={{ ...CustomHover.navLink, marginRight: 2 }} >{actiontxt}</Typography>
+                        <Arrow />
                     </div>
                     <div>
                     </div>

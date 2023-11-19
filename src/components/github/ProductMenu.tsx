@@ -1,8 +1,8 @@
 // ProductMenu.tsx
 import React from 'react';
 import { Box, Divider, ListItem, ListItemText, MenuItem, Typography } from '@mui/material';
-import styles from '../index.module.css';
-import { MenuItemX, exploreItems, menuItems } from '../utils/utils';
+import styles from '../../index.module.css';
+import { MenuItemX, exploreItems, menuItems } from '../../utils/utils';
 
 const ProductMenu: React.FC = () => {
 

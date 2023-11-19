@@ -13,6 +13,17 @@ export interface MenuItemX {
   secondary: string;
 }
 
+export type Sponcard = {
+  name: string;
+  avatar: string;
+  githubUsername: string;
+}
+
+export type Bulid = {
+  text: string;
+  time: string
+}
+
 export const menuItems: MenuItemX[] = [
   { icon: <FiberManualRecordOutlinedIcon />, primary: 'Actions', secondary: 'Automate any workflow' },
   { icon: <ViewInArOutlinedIcon />, primary: 'Packages', secondary: 'Host and manage packages' },
@@ -34,6 +45,14 @@ export const exploreItems: ExploreItem[] = [
   { label: 'Documentation' },
   { label: 'Github Sklls' },
   { label: 'Blog' },
+];
+
+export const NtwistItems: ExploreItem[] = [
+  { label: 'Sustainability' },
+  { label: 'Mineral Processing' },
+  { label: 'Mine-to-mill-to-mine optimization' },
+  { label: 'Github Sklls' },
+  { label: 'Oil & Gas' },
 ];
 
 export const bulidsteps = [
@@ -245,3 +264,113 @@ export const githubVcardData5: GitHubActionsInfo = {
   actiontxt: "Check out pull requests",
   imageurl: "https://github.githubassets.com/assets/illu-pull-requests-2-280cc958fc05.png?width=724&format=webpll"
 };
+
+export interface ntwistCard {
+  mainhead: string;
+  subhead: string;
+  imageurl: string;
+}
+
+export interface ntwistCardProps {
+  data: ntwistCard;
+}
+
+export interface ntwistCardLeft {
+  mainhead: string;
+  subhead: string;
+  subhead1: string
+  imageurl: string;
+}
+
+export interface ntwistCardPropsLeft {
+  data: ntwistCardLeft;
+}
+
+
+export const ntwistRighrCard: ntwistCard = {
+  mainhead: "Mine-To-Mill-To-Mine Optimization",
+  subhead: "NTWIST’s newest product unlocks up to $250/oz in previously inaccessible value in open pit gold mines by connecting siloed data sources like block models, fleet management systems, stockpile surveys, and plant instruments. This allows your company to better track material flow, and feed properties, identify plan/production discrepancies, and correct resource models and production plans.",
+  imageurl: "https://ntwist.com/wp-content/uploads/2023/01/iStock-1339284457-2048x1365.jpg"
+};
+
+export const ntwistRighrCard1: ntwistCard = {
+  mainhead: "Mineral Processing",
+  subhead: "NTWIST offers a number of solutions for mills, concentrators, and leach plants. Our solutions help operations to reduce the effect of feed variability, avoid downtime and increase peak throughput while decreasing energy and reagent consumption.",
+  imageurl: "https://ntwist.com/wp-content/uploads/2021/12/iStock-1322302283.jpg"
+};
+
+export const ntwistCardleftImage: ntwistCardLeft = {
+  mainhead: "Sustainability",
+  subhead: "Environmental stewardship is a priority for NTWIST. We help our customers to minimize their sustainability  impact on the planet. Emissions or environmental targets are used alongside productivity targets to define success for our customers.",
+  subhead1: "With the increasing relevance of carbon accounting and emissions tracking, NTWIST offers a suite of tools to increase visibility into environmental performance and help processing plants track, manage, optimize, and report key metrics.",
+  imageurl: "https://ntwist.com/wp-content/uploads/2021/12/iStock-1284372575.jpg"
+};
+
+export const ntwistCardleftImage1: ntwistCardLeft = {
+  mainhead: "Oil & Gas",
+  subhead: "Oil and Gas plants require a high level of control and robustness in their operation due to the high risks to people and environment.",
+  subhead1: "NTWIST helps Oil & Gas customers to analyze historical data, identify opportunities for process control improvements, and reduce variability in any part of the process, thus providing enhanced reliability and safety.",
+  imageurl: "https://ntwist.com/wp-content/uploads/2022/03/2021-02-oil-and-gas-digital-hero-e1648984580884.png"
+};
+
+export type DrawerProps = {
+  toggleDrawer: () => void
+  drawerOpen: boolean
+}
+
+
+export const CustomHover = {
+  navLink: {
+    fontWeight: '700',
+    fontSize: '24px',
+    cursor: 'pointer',
+    position: "relative",
+    '&:before': {
+      content: "''",
+      marginBottom: '-3.5px',
+      position: 'absolute',
+      width: '0',
+      height: '1.8px',
+      bottom: '2px',
+      left: '0',
+      transform: 'translate(0%, -50%)',
+      visibility: 'hidden',
+      transition: 'all 0.3s ease-in-out',
+      border: '1.5px solid #FFFF',
+      borderRadius: '8px'
+    },
+    '&:hover:before': {
+      visibility: 'visible',
+      width: '100%',
+    }
+  }
+}
+
+export const CustomHover1 = {
+  navLink: {
+    margin: '10px',
+    cursor: 'pointer',
+    position: "relative",
+    '&:before': {
+      content: "''",
+      marginBottom: '-3.5px',
+      position: 'absolute',
+      width: '0',
+      height: '1.8px',
+      bottom: '2px',
+      left: '0',
+      transform: 'translate(0%, -50%)',
+      visibility: 'hidden',
+      transition: 'all 0.3s ease-in-out',
+      border: '1.5px solid black',
+      borderRadius: '8px'
+    },
+    '&:hover:before': {
+      visibility: 'visible',
+      width: '100%',
+      borderRadius: '8px',
+    }
+  }
+}
+
+export const ntwistMenu: string[] = ['Sustainbility', 'Mineral Processing', 'Mine-to-Mill-to-Mine Optimization', 'Olil & Gas']

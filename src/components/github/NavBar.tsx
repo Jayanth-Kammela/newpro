@@ -1,12 +1,13 @@
-import { Toolbar, Box, Drawer, Button, IconButton, useMediaQuery, useTheme } from '@mui/material'
+import { Toolbar, Box, Drawer, Button, IconButton, useMediaQuery, useTheme, TextField, InputAdornment } from '@mui/material'
 import React, { useState } from 'react'
 import OpenSourceMenu from './OpenSourceMenu'
 import ProductMenu from './ProductMenu'
 import SolutionMenu from './SolutionMenu'
-import GitHubIcon from '@mui/icons-material/GitHub';
-import styles from "../index.module.css";
+import styles from "../../index.module.css";
 import { Menu } from '@mui/icons-material';
 import SideResDrawer from './SideResDrawer'
+import { GitHub } from '../../svgs/svg'
+import SearchDrawer from './SearchDrawer'
 
 const NavBar = () => {
 
@@ -66,12 +67,18 @@ const NavBar = () => {
         setSourceMenuOpen(!isSourceMenuOpen);
     };
 
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const toggleDrawer = () => {
+        setDrawerOpen(!drawerOpen);
+    };
+
 
 
     return (
         <React.Fragment>
             <Toolbar>
-                {forScreenWidth ? null : <GitHubIcon sx={{ width: 32, height: 32, cursor: 'pointer', color: '#FFFF' }} />}
+                {forScreenWidth ? null : <GitHub />}
                 {!forScreenWidth && (
                     <>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -106,6 +113,11 @@ const NavBar = () => {
                         </Box>
 
                         <Box sx={{ flexGrow: 1 }} />
+
+                        <div>
+                            <SearchDrawer drawerOpen={drawerOpen} toggleDrawer={toggleDrawer} />
+                        </div>
+
                         <Button variant="text" component={Button} sx={{ textTransform: 'none', color: '#FFFF' }}>
                             Sign in
                         </Button>
@@ -121,7 +133,7 @@ const NavBar = () => {
                             Sign up
                         </Button>
                         <Box sx={{ flexGrow: 1 }} />
-                        <GitHubIcon sx={{ width: 32, height: 32, cursor: 'pointer', color: '#FFFF' }} />
+                        <GitHub />
                         <Box sx={{ flexGrow: 1 }} />
                         <IconButton onClick={forClick} edge="end">
                             <Menu sx={{ color: '#FFFF' }} />
@@ -130,8 +142,8 @@ const NavBar = () => {
                 )}
             </Toolbar>
 
-            <SideResDrawer forScreenWidth={forScreenWidth} open={open} forClick={forClick}/>
-        </React.Fragment>
+            <SideResDrawer forScreenWidth={forScreenWidth} open={open} forClick={forClick} drawerOpen={drawerOpen} toggleDrawer={toggleDrawer} />
+        </React.Fragment >
     )
 }
 

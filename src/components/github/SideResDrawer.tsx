@@ -1,14 +1,15 @@
-import { Drawer, List, Accordion, Typography, AccordionDetails, Box, MenuItem, ListItem, ListItemText, Divider, styled, IconButton } from '@mui/material'
+import { Drawer, List, Accordion, Typography, AccordionDetails, Box, MenuItem, ListItem, ListItemText, Divider, styled, IconButton, Button } from '@mui/material'
 import React from 'react'
-import { menuItems, MenuItemX, exploreItems, menuSections, menuSections1, accordionStyle } from '../utils/utils'
+import { menuItems, MenuItemX, exploreItems, menuSections, menuSections1, accordionStyle } from '../../utils/utils'
 import MuiAccordionSummary, {
     AccordionSummaryProps,
 } from '@mui/material/AccordionSummary';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import styles from "../index.module.css";
+import styles from "../../index.module.css";
 import CloseIcon from '@mui/icons-material/Close';
+import SearchDrawer from './SearchDrawer';
 
-const SideResDrawer = ({ forScreenWidth, open, forClick }: any) => {
+const SideResDrawer = ({ forScreenWidth, open, forClick, drawerOpen, toggleDrawer }: any) => {
 
     const [expanded, setExpanded] = React.useState<string | false>(false);
 
@@ -128,6 +129,16 @@ const SideResDrawer = ({ forScreenWidth, open, forClick }: any) => {
                             <ListItemText className='mx-4 txtwgt'>Pricing</ListItemText>
                         </List>
 
+                        <div className={styles.btnContainer}>
+
+                            <div className="py-3">
+                                <SearchDrawer drawerOpen={drawerOpen} toggleDrawer={toggleDrawer} />
+                            </div>
+                            
+                            <Button fullWidth variant="contained" className={styles.btnstyle}>
+                                Sign in
+                            </Button>
+                        </div>
                     </ul>
                 </Drawer>
             )}

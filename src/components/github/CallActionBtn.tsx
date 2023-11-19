@@ -1,6 +1,6 @@
 import { Box, Button, Stack, Divider, styled, TextField, useMediaQuery } from '@mui/material'
 import React from 'react'
-import styles from "../index.module.css";
+import styles from "../../index.module.css";
 
 const CallActionBtn = () => {
 
