@@ -92,6 +92,17 @@ section {
         align-items: center;
         margin-bottom: 40px;
     }
+    .unitxt {
+        color: #FFFF;
+        font-family: 'Open Sans' !important;
+        font-size: 14px !important;
+    }
+    
+    .subtxt {
+        color: #6E7681;
+        font-family: 'Open Sans' !important;
+        font-size: 14px !important;
+    }
 }
 
 .bulittxt {
