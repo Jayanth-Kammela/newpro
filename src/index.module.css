@@ -453,10 +453,9 @@ section {
 
 .btnContainer {
     text-align: center;
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    margin-bottom: 2em;
+    margin-top: 16em;
+    margin-bottom: 1em;
     padding: 0px 16px;
 }
 
