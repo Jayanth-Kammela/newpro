@@ -27,7 +27,7 @@ const Github = () => {
 
                         {/* <Box className='right-bg'/> */}
 
-                        <Box component={'div'} className={`${styles.boxst} w-full lg:w-2/4 md:w-3/4 sm:w-full py-4`}>
+                        <Box component={'div'} className={`${styles.boxst} w-full lg:w-2/4 md:w-3/4 sm:w-auto py-4`}>
                             <img
                                 src="https://github.githubassets.com/assets/eyebrow-23@2x-563f292d9e30.png?width=44&format=webpll"
                                 alt=""
