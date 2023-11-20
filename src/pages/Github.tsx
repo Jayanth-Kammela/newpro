@@ -28,11 +28,13 @@ const Github = () => {
                         {/* <Box className='right-bg'/> */}
 
                         <Box component={'div'} className={`${styles.boxst} w-full lg:w-2/4 md:w-3/4 sm:w-auto py-4`}>
+                            <div>
                             <img
                                 src="https://github.githubassets.com/assets/eyebrow-23@2x-563f292d9e30.png?width=44&format=webpll"
                                 alt=""
                                 className={styles.frimg}
                             />
+                            </div>
                             <div>
                                 <Typography variant="h4" component="p" className={`${styles.unitxt}`}>
                                     GitHub Universe: AI. Security. DevEx
