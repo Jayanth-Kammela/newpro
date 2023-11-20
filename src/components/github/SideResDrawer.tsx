@@ -13,7 +13,8 @@ const SideResDrawer = ({ forScreenWidth, open, forClick, drawerOpen, toggleDrawe
 
     const [expanded, setExpanded] = React.useState<string | false>(false);
 
-    const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    const handleChange = (panel: string) => (event: any, isExpanded: boolean) => {
+        console.log(event);
         setExpanded(isExpanded ? panel : false);
     };
 

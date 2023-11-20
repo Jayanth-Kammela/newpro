@@ -1,6 +1,6 @@
 import React from 'react'
 import { CustomHover1, ntwistMenu } from '../../utils/utils'
-import { List, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 
 const IndusrtyMenu = () => {
   return (

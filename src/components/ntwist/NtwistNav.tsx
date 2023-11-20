@@ -1,4 +1,4 @@
-import { useMediaQuery, Toolbar, Box, IconButton, useTheme, Drawer, List, Typography, TextField } from '@mui/material';
+import { useMediaQuery, Toolbar, Box, IconButton, useTheme, Drawer, List, TextField } from '@mui/material';
 import React, { useState } from 'react'
 import { Menu } from '@mui/icons-material';
 import styles from "../../index.module.css";

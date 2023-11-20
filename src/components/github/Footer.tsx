@@ -1,6 +1,5 @@
 import React from 'react'
 import { footerData } from '../../utils/utils'
-import { GitHub, GitHubName } from '../../svgs/svg'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 

@@ -1,4 +1,4 @@
-import { Toolbar, Box, Drawer, Button, IconButton, useMediaQuery, useTheme, TextField, InputAdornment } from '@mui/material'
+import { Toolbar, Box, Drawer, Button, IconButton, useMediaQuery, useTheme } from '@mui/material'
 import React, { useState } from 'react'
 import OpenSourceMenu from './OpenSourceMenu'
 import ProductMenu from './ProductMenu'
